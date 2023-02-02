@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride anywhere in Canada | Canada Ride</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/JS/scripts.js"></script>
+    <style>
+        /*Background image for home page*/
+        body{
+            background-image: url(/1x/marten-bjork-wGu1pzDSm3g-unsplash.jpg);
+        }
+    </style>
+</head>
+<body>
+    <div id="pagewrap" class="pagecontent">
+        <div id="header">
+            <a href="index.html"><!--clicking on logo takes user to home page-->
+                <?xml version="1.0" encoding="iso-8859-1"?>
+                <!-- Generator: Adobe Illustrator 24.1.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 67.355 18.71" style="enable-background:new 0 0 67.355 18.71;" xml:space="preserve">
+                <text transform="matrix(0.8878 0 0 1 2.3559 12.9434)" style="fill:#726658; font-family:'ArialMT'; font-size:12px;">Canada </text>
+                <text transform="matrix(1 0 0 1 42.6363 12.9431)" style="fill:#2BB673; font-family:'ArialMT'; font-size:12px;">Ride</text>
+                <path style="fill:none;stroke:#C2B59B;stroke-miterlimit:10;" d="M37.145,17.23H5.035c-2.25,0-4.08-1.83-4.08-4.08V5.8
+                    c0-2.25,1.83-4.08,4.08-4.08h32.11c2.25,0,4.08,1.83,4.08,4.08v7.35C41.225,15.41,39.395,17.23,37.145,17.23z"/>
+                </svg>
+            </a> <!--Sign up button on a top right corner-->
+                <button class="signup-btn" onclick="location.href='/html/signup.html';">Sign up</button>
+                <!--Login pop up form on a home page-->
+                <button class="login-btn" onclick="openForm()">Log in</button>
+                    <div class="form-popup" id="myForm">
+                        <form class="form-container">
+                        <h1>Login</h1>
+                    
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Enter Email" name="email" required>
+                    
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+                    
+                        <button type="submit" class="btn">Login</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                        </form>
+                    </div>
+            <!--Fligh, Train and Bus three buttons for trip search-->
+            <div class="three-btns">
+                <button class="flights-btn" onclick="location.href='/html/index.html';">Flights</button>
+                <button class="train-btn" onclick="location.href='/html/trains.html';">Trains</button>
+                <button class="bus-btn" onclick="location.href='/html/bus.html';">Bus</button>
+            </div>
+        </div>
+        <main>
+            <div class="hero-image-content">
+                <h1 class="hero-image-text">LET'S FIND A FLIGHT FOR YOU</h1>
+                <div class="flight-search-">
+                        <label class="radio-btns">
+                            <input type="radio" checked="checked" name="radio">
+                            <span class="checkmark"></span>Round Trip
+                        </label>
+                        <label class="radio-btns">
+                            <input type="radio" name="radio">
+                            <span class="checkmark"></span>One Way
+                        </label>
+                        <label class="radio-btns">
+                            <input type="radio" name="radio">
+                            <span class="checkmark"></span>Multi-City
+                        </label>
+                        <div style="clear: both;"></div>
+                      <div class="flight-search-fields">
+                        <br>
+                        <label class="flight-search-from-field">From</label>
+                        <input type="text" class="flight-search-from-input" placeholder="Country, city or airport">
+                        <label class="flight-search-to-field">To</label>
+                        <input type="text" class="flight-search-to-input" placeholder="Country, city or airport">
+                        <label class="flight-search-depart-field">Depart</label>
+                        <input type="date" class="flight-search-depart-input">
+                        <label class="flight-search-return-field">Return</label>
+                        <input type="date" class="flight-search-return-input">
+                        <label class="flight-search-cabin-class-travelers-field">Class, Cabin & Travelers
+                        <input list="travellers" class="flight-search-from-input" name="travellers"></label>
+                        <datalist id="travellers">
+                            <option value="1 Adult">
+                            <option value="2 Adults">
+                            <option value="3 Adults">
+                            <option value="4 Adults">
+                            <option value="1 Child">
+                            <option value="2 Children">
+                          </datalist>
+                        <button class="search-flight-button">Search Flights &nbsp;&nbsp;&nbsp;></button>
+                      </div>
+                </div> 
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <div class="column">
+                  <img src="/1x/box-vencouver.jpg" alt="vencouver" style="width:100%" height="500px">
+                  <div class="text-block-vencouver">
+                    <h2>Vencouver</h2>
+                    <p>What a beautiful sunrise</p>
+                    <button class="vencouver-deal-button">Grab a deal</button>
+                  </div>
+                </div>
+                <div class="column">
+                  <img src="/1x/box-montreal.jpg" alt="montreal" style="width:100%" height="500px">
+                  <div class="text-block-montreal">
+                    <h2>Montreal</h2>
+                    <p>A French City in Canada</p>
+                    <button class="montreal-deal-button">Grab a deal</button>
+                  </div>
+                </div>
+                <div class="column">
+                  <img src="/1x/box-calgary.jpg" alt="calgary" style="width:100%" height="500px">
+                  <div class="text-block-calgary">
+                    <h2>Calgary</h2>
+                    <p> Canada's Oil Industry</p>
+                    <button class="calgary-deal-button">Grab a deal</button>
+                  </div>
+                </div>
+              </div> 
+        </main>         
+    </div>
+    <div class="footer-stuff">
+        <footer>
+            <p>Author: Harshin Mehta<br>
+            Created for learning purpose<br>
+            <a href="mailto:harshinmehta@gmail.com">harshinmehta@gmail.com</a></p>
+          </footer>
+    </div>
+</body>
+</html>
