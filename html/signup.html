@@ -5,12 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up | Canada Ride</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/signupStyle.css">
     <script src="/JS/scripts.js"></script>
     <style>
         body{
            background-image: url(/1x/andrew-deslauriers-oUPywYZT88Y-unsplash.jpg);
         }
+    
+
     </style>
 </head>
 <body>
@@ -31,28 +33,45 @@
             <button class="login-btn" onclick="location.href='/html/index.html';">Log in</button>
         </div>
     </div>
-    <div class="sign-up">
-        <h1>Sign Up</h1>
-    <form action="submit_form.php" method="post" onsubmit="return validateForm()">
-      <label for="firstname">First Name:</label>
-      <input type="text" id="firstname" name="firstname">
-      <br>
-      <label for="lastname">Last Name:</label>
-      <input type="text" id="lastname" name="lastname">
-      <br>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email">
-      <br>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password">
-      <br>
-      <label for="verifypassword">Verify Password:</label>
-      <input type="password" id="verifypassword" name="verifypassword">
-      
-      <input type="submit" value="Sign Up">
-    </form>
+    <main>
+    <div id="sign-up-form">
+    <form id="signup-form">
+        <div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          <label for="first-name">First Name:</label>
+          <input type="text" id="first-name" name="first-name">
+        </div>
+        <div>
+          <label for="last-name">Last Name:</label>
+          <input type="text" id="last-name" name="last-name">
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email">
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password">
+        </div>
+        <div>
+          <label for="verify-password">Verify Password:</label>
+          <input type="password" id="verify-password" name="verify-password">
+        </div>
+        <div>
+          <label for="show-password">
+            <input type="checkbox" id="show-password"> Show Password
+          </label>
+        </div>
+        <button type="submit">Sign Up</button>
+      </form>
     </div>
-    <br>
+    </main>
     <div class="footer-stuff">
         <footer>
             <p>Author: Harshin Mehta<br>

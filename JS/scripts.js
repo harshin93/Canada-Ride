@@ -26,3 +26,29 @@ function openForm() {
     }
     return true;
   }
+
+  const form = document.querySelector("#signup-form");
+  const passwordInput = document.querySelector("#password");
+  const verifyPasswordInput = document.querySelector("#verify-password");
+  const showPasswordInput = document.querySelector("#show-password");
+  
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+  
+    if (passwordInput.value !== verifyPasswordInput.value) {
+      alert("Passwords do not match");
+    } else {
+      // submit the form to the server
+    }
+  });
+  
+  showPasswordInput.addEventListener("change", (event) => {
+    if (event.target.checked) {
+     
+      passwordInput.type = "text";
+      verifyPasswordInput.type = "text";
+    } else {
+      passwordInput.type = "password";
+      verifyPasswordInput.type = "password";
+    }
+  });
