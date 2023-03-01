@@ -1,0 +1,83 @@
+svg{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    max-width: 12%;
+}
+body {
+  min-height: 120vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background-image: url(/1x/pexels-cyrill-bambilla-15480514.jpg);
+  background-size: 1920px;
+}
+
+/*Login button style*/
+.login-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #C2C9CD;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    padding: 17px 30px;
+  }
+.login-btn:hover{
+    background-color: #676d70;
+    cursor: pointer;
+}
+/*Sign up button style*/
+.signup-btn{
+    position: absolute;
+    top: 10px;
+    right: 130px;
+    background-color: #C2C9CD;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    padding: 17px 30px;
+}
+.signup-btn:hover{
+    background-color: #676d70;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 3px;
+    background-color: #8dc9fa;
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+  }
+.contactus-btn{
+  position:relative;
+  left:40%;
+  background-color: #C2C9CD;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    padding: 17px 30px;
+}
+.contactus-btn:hover{
+  background-color: #676d70;
+  cursor: pointer;
+}
+.aboutus-btn{
+  position:relative;
+  right: 40%;
+  background-color: #C2C9CD;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    padding: 17px 30px;
+}
+.aboutus-btn:hover{
+  background-color: #676d70;
+  cursor: pointer;
+}

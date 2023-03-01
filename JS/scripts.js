@@ -1,54 +1,128 @@
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-  }
-  
-  function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-  }
-  function validateForm() {
-    var password = document.getElementById("password").value;
-    var verifyPassword = document.getElementById("verifypassword").value;
-    var firstName = document.getElementById("firstname").value;
-    var lastName = document.getElementById("lastname").value;
-    var email = document.getElementById("email").value;
+var options = {
+    shouldSort: true,
+    threshold: 0.4,
+    maxPatternLength: 32,
+    keys: [{
+      name: 'iata',
+      weight: 0.5
+    },
+    {
+      name: 'name',
+      weight: 0.3
+    },
+    {
+      name: 'city',
+      weight: 0.2
+    }]
+};
 
-    if (password !== verifyPassword) {
-      alert("Passwords do not match");
-      return false;
-    }
-    if (!/[A-Z]/.test(password) || !/\d/.test(password) || !/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-      alert("Password must contain a symbol, a number, and a capital letter");
-      return false;
-    }
-    if (password.includes(firstName) || password.includes(lastName) || password.includes(email)) {
-      alert("Password must not contain email, first name or last name");
-      return false;
-    }
-    return true;
-  }
+var fuse = new fuse(airports, options);
 
-  const form = document.querySelector("#signup-form");
-  const passwordInput = document.querySelector("#password");
-  const verifyPasswordInput = document.querySelector("#verify-password");
-  const showPasswordInput = document.querySelector("#show-password");
-  
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-  
-    if (passwordInput.value !== verifyPasswordInput.value) {
-      alert("Passwords do not match");
-    } else {
-      // submit the form to the server
+$('.autocomplete').each(function() {
+    var ac = $(this);
+
+    ac.on('click', function(e) {
+        e.stopPropagation();
+    })
+    .on('focus keyup', search)
+    .on('keydown', onKeyDown);
+
+    var wrap = $('<div>')
+        .addClass('autocomplete-wrapper')
+        .insertBefore(ac)
+        .append(ac);
+
+    var list = $('<div>')
+        .addClass('autocomplete-results')
+        .on('click', '.autocomplete-result', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            selectIndex($(this).data('index'), ac);
+        })
+        .appendTo(wrap);
+});
+
+$(document)
+.on('mouseover', '.autocomplete-result', function(e) {
+    var index = parseInt($(this).data('index'), 10);
+    if (!isNaN(index)) {
+        $(this).attr('data-highlight', index);
     }
-  });
-  
-  showPasswordInput.addEventListener("change", (event) => {
-    if (event.target.checked) {
-     
-      passwordInput.type = "text";
-      verifyPasswordInput.type = "text";
-    } else {
-      passwordInput.type = "password";
-      verifyPasswordInput.type = "password";
+})
+.on('click', clearResults);
+
+function clearResults() {
+    results = [];
+    numResults = 0;
+    $('.autocomplete-results').empty();
+}
+
+function selectIndex(index, autoinput) {
+    if (results.length >= index + 1) {
+    autoinput.val(results[index].iata);
+    clearResults();
+    }  
+}
+
+var results = [];
+var numResults = 0;
+var selectedIndex = -1;
+
+function search(e) {
+    if (e.which === 38 || e.which === 13 || e.which === 40) {
+        return;
     }
-  });
+    var ac = $(e.target);
+    var list = ac.next();
+    if (ac.val().length > 0) {
+        results = _.take(fuse.search(ac.val()), 7);
+        numResults = results.length;
+
+        var divs = results.map(function(r, i) {
+            return '<div class="autocomplete-result" data-index="'+ i +'">'
+                + '<div><b>'+ r.iata +'</b> - '+ r.name +'</div>'
+                + '<div class="autocomplete-location">'+ r.city +', '+ r.country +'</div>'
+                + '</div>';
+        });
+
+        selectedIndex = -1;
+        list.html(divs.join(''))
+            .attr('data-highlight', selectedIndex);
+
+    } else {
+        numResults = 0;
+        list.empty();
+    }
+}
+
+function onKeyDown(e) {
+    var ac = $(e.currentTarget);
+    var list = ac.next();
+    switch(e.which) {
+        case 38: // up
+            selectedIndex--;
+            if (selectedIndex <= -1) {
+                selectedIndex = -1;
+            }
+            list.attr('data-highlight', selectedIndex);
+        break;
+        case 13: // enter
+        selectIndex(selectedIndex, ac);
+        break;
+        case 9: // enter
+            selectIndex(selectedIndex, ac);
+            e.stopPropagation();
+        return;
+        case 40: // down
+            selectedIndex++;
+            if (selectedIndex >= numResults) {
+                selectedIndex = numResults-1;
+            }
+            list.attr('data-highlight', selectedIndex);
+        break;
+
+        default: return; // exit this handler for other keys
+    }
+    e.stopPropagation();
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+}

@@ -1,0 +1,46 @@
+svg{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    max-width: 12%;
+}
+body {
+  min-height: 120vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background-image: url(/1x/BusPageBackgroundImage.jpg);
+  background-size: 1920px;
+}
+
+/*Login button style*/
+.login-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #C2C9CD;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    padding: 17px 30px;
+  }
+.login-btn:hover{
+    background-color: #676d70;
+    cursor: pointer;
+}
+/*Sign up button style*/
+.signup-btn{
+    position: absolute;
+    top: 10px;
+    right: 130px;
+    background-color: #C2C9CD;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    padding: 17px 30px;
+}
+.signup-btn:hover{
+    background-color: #676d70;
+    cursor: pointer;
+}
