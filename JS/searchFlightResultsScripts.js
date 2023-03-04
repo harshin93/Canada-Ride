@@ -26,7 +26,7 @@ function getQueryParam(name) {
   const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '0bd26bb807msha76949a411f105cp139f54jsnb740571f00f9',
+		'X-RapidAPI-Key': 'somekey',
 		'X-RapidAPI-Host': 'timetable-lookup.p.rapidapi.com'
 	}
 };
