@@ -243,7 +243,8 @@ input[type="date"]{
         cursor: pointer;
         margin-left: 3%;
 }
-input[list="travellers"]{
+input[list="travellers"],
+     [list="airports"]{
     height: 40px;
     width: 200px;
     font-family: 'Source Sans Pro', sans-serif;

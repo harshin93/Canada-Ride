@@ -57,15 +57,41 @@
                       <div class="flight-search-fields">
                         <br>
                         <label class="flight-search-from-field">From</label>
-                        <input id="autocomplete" type="text" class="autocomplete" placeholder="Country, city or airport">
+                        <input list="airports" id="from" class="airports" placeholder="City or airport">
+                        <datalist id="airports">
+                            <option value="Calgary International Airport - YYC">
+                            <option value="Edmonton International Airport - YEG">
+                            <option value="Fredericton International Airport - YFC">
+                            <option value="Gander International Airport - YQX">
+                            <option value="Halifax Stanfield International Airport - YHZ">
+                            <option value="Montréal Trudeau International Airport - YUL">
+                            <option value="Ottawa Macdonald–Cartier International Airport - YOW">
+                            <option value="Québec/Jean Lesage International Airport - YQB">
+                            <option value="Toronto Pearson International Airport - YYZ">
+                            <option value="Vancouver International Airport - YVR">
+                            <option value="Winnipeg International Airport - YWG">
+                            </datalist>
                         <label class="flight-search-to-field">To</label>
-                        <input id="autocomplete" type="text" class="autocomplete" placeholder="Country, city or airport">
+                        <input list="airports" id="to" class="airports" placeholder="City or airport">
+                        <datalist id="airports">
+                          <option value="Calgary International Airport - YYC">
+                          <option value="Edmonton International Airport - YEG">
+                          <option value="Fredericton International Airport - YFC">
+                          <option value="Gander International Airport - YQX">
+                          <option value="Halifax Stanfield International Airport - YHZ">
+                          <option value="Montréal Trudeau International Airport - YUL">
+                          <option value="Ottawa Macdonald–Cartier International Airport - YOW">
+                          <option value="Québec/Jean Lesage International Airport - YQB">
+                          <option value="Toronto Pearson International Airport - YYZ">
+                          <option value="Vancouver International Airport - YVR">
+                          <option value="Winnipeg International Airport - YWG">
+                          </datalist>
                         <label class="flight-search-depart-field">Depart</label>
-                        <input type="date" class="flight-search-depart-input">
+                        <input type="date" id="depart" class="flight-search-depart-input">
                         <label class="flight-search-return-field">Return</label>
-                        <input type="date" class="flight-search-return-input">
+                        <input type="date" id="return" class="flight-search-return-input">
                         <label class="flight-search-cabin-class-travelers-field">Class, Cabin & Travelers
-                        <input list="travellers" class="flight-search-from-input" name="travellers"></label>
+                        <input list="travellers"id="traveller"class="flight-search-from-input"name="travellers"></label>
                         <datalist id="travellers">
                             <option value="1 Adult">
                             <option value="2 Adults">
@@ -74,7 +100,7 @@
                             <option value="1 Child">
                             <option value="2 Children">
                           </datalist>
-                        <button class="search-flight-button">Search Flights &nbsp;&nbsp;&nbsp;></button>
+                        <button type="button "class="search-flight-button" onclick="searchFlights()">Search Flights &nbsp;&nbsp;&nbsp;--></button>
                       </div>
                 </div> 
             </div>
